@@ -5,20 +5,6 @@
   - [Reference circuit](#reference-circuit)
     - [Bandgap reference](#bandgap-reference)
 
-<head>
-  <script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-
-    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-
-  });
-
-  </script>
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-</head>
-
 # 문서 목적
 **첫째로**, 이번 학기에 제가 **어떤 연구를 했는지**에 대해서 알려주고자 해요. 하지만 대부분이 여기에 설명하기엔 너무 길고 복잡한 내용이기 때문에 간략한 설명만 하고 지나갈께요.
 
