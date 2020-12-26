@@ -25,7 +25,7 @@ OPAMP의 설계 연구를 진행했습니다. OPAMP는 회로 수업을 들은 �
 
 회로 공부를 해본 사람들은 diode-connected 된 transistor에 current를 걸어주면 transistor의 <img src="https://render.githubusercontent.com/render/math?math=V_{gs}"> 로 거기에 해당하는 전압이 만들어진 다는 것을 알고 있을거에요. 거기에 current mirror를 추가해서 만드는 회로입니다. 나중에 공부해보면 딱히 어려운 내용은 아니에요.
 
-여기서 언급하고 싶은 내용은 그림에 $I_{BIAS}$라고 그려진 current source가 있다는 거. 위에서 언급했지만 이 역할을 해주는 **단일** 회로 소자는 없어요. 즉, 이것도 회로를 구성해서 구현해줘야 합니다. 이상적인 current source를 만드는 방법을 뒤쪽의 읽을 거리에 간단하게 설명해놨습니다.
+여기서 언급하고 싶은 내용은 그림에 <img src="https://render.githubusercontent.com/render/math?math=I_{BIAS}">라고 그려진 current source가 있다는 거. 위에서 언급했지만 이 역할을 해주는 **단일** 회로 소자는 없어요. 즉, 이것도 회로를 구성해서 구현해줘야 합니다. 이상적인 current source를 만드는 방법을 뒤쪽의 읽을 거리에 간단하게 설명해놨습니다.
 
 졸업 연구의 전체 내용을 세부적으로 담은 레포트 파일도 있으니 만약 관심있으면 함 보시길 바랍니다.
 
@@ -52,7 +52,7 @@ OPAMP의 설계 연구를 진행했습니다. OPAMP는 회로 수업을 들은 �
 
 ![transistor_layout_description](assets/transistor_layout_description.jpg)
 
-오른쪽 그림과 왼쪽 그림은 동일한 transistor이고요, 왼쪽은 transistor를 위에서 본 것이고 오른쪽은 단면도라고 보시면 됩니다. Poly라고 그려진 직사각형 부분이 transistor의 gate에 해당됩니다. Poly에 전압이 걸리면 전압 크기에 따라서 오른쪽 그림의 D와 S 사이에 전하가 흐를 수 있는 channel이 생겼다가 없어졌다가 하게 됩니다. (Poly는 resistance는 높지만 거의 전류가 흐르지 않으니 Poly 직사각형 모든 부분의 전압 level이 같다고 보면 돼요.) 이 사실을 상기해보면 $L_d$라고 표현된 값이 transistor의 길이에 해당되고 $W_d$라고 표현된 값이 transistor의 너비에 해당된다는 것을 이해할 수 있습니다. 잠깐 혼자 생각해보면 금방 이해할 수 있을거에요. (Poly 말고 metal을 써도 되는데 그건 주어진 공정에 따라 다릅니다.)
+오른쪽 그림과 왼쪽 그림은 동일한 transistor이고요, 왼쪽은 transistor를 위에서 본 것이고 오른쪽은 단면도라고 보시면 됩니다. Poly라고 그려진 직사각형 부분이 transistor의 gate에 해당됩니다. Poly에 전압이 걸리면 전압 크기에 따라서 오른쪽 그림의 D와 S 사이에 전하가 흐를 수 있는 channel이 생겼다가 없어졌다가 하게 됩니다. (Poly는 resistance는 높지만 거의 전류가 흐르지 않으니 Poly 직사각형 모든 부분의 전압 level이 같다고 보면 돼요.) 이 사실을 상기해보면 <img src="https://render.githubusercontent.com/render/math?math=L_d">라고 표현된 값이 transistor의 길이에 해당되고 <img src="https://render.githubusercontent.com/render/math?math=W_d">라고 표현된 값이 transistor의 너비에 해당된다는 것을 이해할 수 있습니다. 잠깐 혼자 생각해보면 금방 이해할 수 있을거에요. (Poly 말고 metal을 써도 되는데 그건 주어진 공정에 따라 다릅니다.)
 
 작고 검은 정사각형은 contact이라고 부르는 애들이에요. Transistor를 만들었으면 다른 애들이랑 wire로 연결시켜줘야 하니까 전류가 흐를 수 있는 통로를 뚫어주는 거라고 생각하면 됩니다. 통로를 뚫어주는 이유는 wire가 공중에 떠있기 때문이에요.(사실 공중은 아니고 oxide의 바다(?)에 떠있습니다)
 
@@ -64,7 +64,7 @@ OPAMP의 설계 연구를 진행했습니다. OPAMP는 회로 수업을 들은 �
 
 ![gate_fingers](assets/gate_fingers.png)
 
-얼핏 보면 트랜지스터 여러 개가 있는 거라고 생각할 수도 있어요. 하지만 이 그림은 하나의 트랜지스터를 표현하고 있습니다. 그림을 보면 transistor의 terminal이 source 혹은 drain으로 분류되어 있는 것을 볼 수 있는데 source는 source끼리, drain은 drain끼리 wire로 연결시켜야 하나의 transistor가 되는 겁니다. 이 때 이 transistor의 width는 $W_f$의 3배인 $3W_f$에요. **위쪽 drain은 위, 아래 source로 모두 전류를 흘려줄 수 있고 아래쪽 drain은 위쪽 source로 전류를 흘려줄 수 있으니 그만큼 전류가 흐를 수 있는 통로가 넓어진 것 이라 생각하면 돼요.** 이 부분이 이해가 잘 가지 않을 수 있지만 제 설명 능력이 부족해서 이렇게 밖에 말을 못하겠군요. 어쨌든 이렇게 transistor를 만들면 gate가 손가락처럼 나눠진다고 해서 각각 나눠진 gate를 finger라고 부릅니다.
+얼핏 보면 트랜지스터 여러 개가 있는 거라고 생각할 수도 있어요. 하지만 이 그림은 하나의 트랜지스터를 표현하고 있습니다. 그림을 보면 transistor의 terminal이 source 혹은 drain으로 분류되어 있는 것을 볼 수 있는데 source는 source끼리, drain은 drain끼리 wire로 연결시켜야 하나의 transistor가 되는 겁니다. 이 때 이 transistor의 width는 <img src="https://render.githubusercontent.com/render/math?math=W_f">의 3배인 <img src="https://render.githubusercontent.com/render/math?math=3W_f">에요. **위쪽 drain은 위, 아래 source로 모두 전류를 흘려줄 수 있고 아래쪽 drain은 위쪽 source로 전류를 흘려줄 수 있으니 그만큼 전류가 흐를 수 있는 통로가 넓어진 것 이라 생각하면 돼요.** 이 부분이 이해가 잘 가지 않을 수 있지만 제 설명 능력이 부족해서 이렇게 밖에 말을 못하겠군요. 어쨌든 이렇게 transistor를 만들면 gate가 손가락처럼 나눠진다고 해서 각각 나눠진 gate를 finger라고 부릅니다.
 
 여기까지 읽었으면 위쪽에 OPAMP layout에 뭐가 그려져 있는 건지 대충은 보일 것이라 생각합니다. 참고로 OPAMP layout에서 오른쪽에 있는 딥따 큰(deep dark) 직사각형은 capacitor입니다.  Transistor에 비해 capacitor가 이렇게 크기 때문에 최대한 capacitor는 되도록 쓰지 않거나 크기를 작게 하는 방향으로 회로를 설계해야 한다는 말이 나오는 거에요. 그리고 보통 resistor가 capacitor보다 더 큽니다. 그러니 resistor는 꼭 필요할 때만 쓰는 게 좋아요.
 
@@ -92,19 +92,19 @@ Current source는 정의상 양단에 무슨 전압이 걸리더라도 일정한
 
 BJT를 이용하게 됩니다. 이를 이용해서 온도 변화에 둔감한 **전압**을 만들 수 있습니다. Key point는 BJT에서 만들어지는 어떤 전압은 온도에 따라 **감소**하는 경향을 띄는데, BJT 간에 생기는 전압 차이는 온도에 따라 **증가**하는 경향을 띈다는 것입니다. 이를 적절하게 섞으면 온도에 따라서 변하지 않는 전압을 만들어줄 수 있다는 겁니다.
 
-수식으로 보자면, BJT의 $V_{BE}$의 온도에 대한 미분은 다음과 같습니다.
+수식으로 보자면, BJT의 <img src="https://render.githubusercontent.com/render/math?math=V_{BE}">의 온도에 대한 미분은 다음과 같습니다.
 
-$\partial V_{BE}/\partial T=\frac{V_{BE}-(4+m)V_{T}-E_g/q}{T}$
+<img src="https://render.githubusercontent.com/render/math?math=\partial V_{BE}/\partial T=\frac{V_{BE}-(4+m)V_{T}-E_g/q}{T}">
 
-$m$은 BJT마다 다른 값인데 $-3/2$정도 합니다. $q$는 전자의 전하량, $E_g$는 silicon의 bandgap energy입니다. 따라서 $V_{BE}$를 잘 선택하면 저 값을 0보다 작게 만들 수 있겠죠. 예를 들면 $-1.5{mV}/{K}$ 같은 값을 가지도록 할 수 있습니다.
+<img src="https://render.githubusercontent.com/render/math?math=m">은 BJT마다 다른 값인데 <img src="https://render.githubusercontent.com/render/math?math=-3/2">정도 합니다. <img src="https://render.githubusercontent.com/render/math?math=q">는 전자의 전하량, <img src="https://render.githubusercontent.com/render/math?math=E_g">는 silicon의 bandgap energy입니다. 따라서 <img src="https://render.githubusercontent.com/render/math?math=V_{BE}">를 잘 선택하면 저 값을 0보다 작게 만들 수 있겠죠. 예를 들면 <img src="https://render.githubusercontent.com/render/math?math=-1.5{mV}/{K}"> 같은 값을 가지도록 할 수 있습니다.
 
 <img src='assets/difference_bjt_vbe.png'>
 
-하지만 두 BJT 간의 $V_{BE}$ 차이의 온도에 대한 미분은 다음과 같습니다.
+하지만 두 BJT 간의 <img src="https://render.githubusercontent.com/render/math?math=V_{BE}"> 차이의 온도에 대한 미분은 다음과 같습니다.
 
-$\partial \Delta V_{BE}/\partial T=\frac{k}{q}\ln{n}$
+<img src="https://render.githubusercontent.com/render/math?math=\partial \Delta V_{BE}/\partial T=\frac{k}{q}\ln{n}">
 
-n은 BJT 간의 전류 차이입니다. 요거는 $n$을 조금만 키워주면 0보다 큰 값을 가진 다는 것을 알 수 있습니다.
+n은 BJT 간의 전류 차이입니다. 요거는 <img src="https://render.githubusercontent.com/render/math?math=n">을 조금만 키워주면 0보다 큰 값을 가진 다는 것을 알 수 있습니다.
 
 이 두 가지를 섞어서 만드는 회로가 bandgap reference 회로입니다. 회로를 완성하고 수식을 살펴보면 silicon의 bandgap energy는 온도에 따라 바뀌지 않는다는 사실을 활용하는 꼴이 되기 때문에 **bandgap** reference라고 부릅니다.
 
